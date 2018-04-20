@@ -8,6 +8,7 @@ import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wra
 import { FirstPageComponent } from './components/first-page/first-page.component';
 import {RouterModule, Routes} from '@angular/router';
 import { AudioComponent } from './components/audio/audio.component';
+import {AudioCounterService} from './components/audio/audio-counter.service';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -35,7 +36,9 @@ const appRoutes: Routes = [
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG
-    }],
+    },
+    AudioCounterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
