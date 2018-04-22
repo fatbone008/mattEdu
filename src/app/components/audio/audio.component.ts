@@ -1,7 +1,7 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild} from '@angular/core';
 import {AudioCounterService} from './audio-counter.service';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/distinct';
+import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
@@ -12,10 +12,12 @@ import {Recorder, TextBundler} from '../../models/Recorder';
   templateUrl: './audio.component.html',
   styleUrls: ['./audio.component.css']
 })
-export class AudioComponent implements OnInit, OnDestroy{
+export class AudioComponent implements OnInit, OnDestroy, AfterViewInit{
   tracer$: Observable<number>;
 
   @ViewChild('player') player: ElementRef;
+  @ViewChild('container') container: ElementRef;
+  @ViewChild('fei') fei;
 
   recorders;
 
@@ -37,27 +39,30 @@ export class AudioComponent implements OnInit, OnDestroy{
       new TextBundler({time: '0:23', text: 'who knows'}),
       new TextBundler({time: '0:15', text: 'what happen'})
     ]);
-    const hashingRecorders = this.recorders.hash();
-    this.tracer$ = this.audioCounterServices.counter$
-      .map(seccond => Math.floor(seccond))
-      .distinct()
-      .do(second => {
-        // 激活的行
-        if (hashingRecorders[second]) {
-          console.log(hashingRecorders[second]);
-          this.scrollTo = second;
-        }
-      });
-    this.audioCounterServices.startTracing(this.player.nativeElement, 700);
-    this.tracer$.subscribe(console.log);
 
 
-    console.log(this.recorders.hash());
   }
-
 
   ngOnDestroy(): void {
     this.audioCounterServices.stopTracing();
   }
 
+  ngAfterViewInit(): void {
+
+    const hashingRecorders = this.recorders.hash();
+    this.tracer$ = this.audioCounterServices.counter$
+      .map(seccond => Math.floor(seccond))
+      .distinctUntilChanged()
+      .do(second => {
+        // 激活的文本段
+        if (hashingRecorders[second]) {
+          console.log(hashingRecorders[second]);
+          this.scrollTo = second;
+          console.log(document.getElementById(second + ''));
+          document.getElementById(second + '').scrollIntoView({block: 'center', behavior: 'smooth'});
+        }
+      });
+    this.audioCounterServices.startTracing(this.player.nativeElement, 700);
+    this.tracer$.subscribe(console.log);
+  }
 }

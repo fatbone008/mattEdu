@@ -1,7 +1,7 @@
 <div class="record-tracer">
-  <div class="text-container">
-    <div class="text" *ngFor="let text of recorders.recordObjs">
-      <span [id]="text.time" [ngClass]="{'active': scrollTo === text.time}">{{text.text}}</span>
+  <div class="text-container" #container>
+    <div class="text" *ngFor="let text of recorders.recordObjs" [attr.id]="text.time">
+      <span [ngClass]="{'active': scrollTo === text.time}">{{text.text}}</span>
     </div>
   </div>
   <audio class="audio" #player src="./assets/audio/testing.mp3" controls></audio>
