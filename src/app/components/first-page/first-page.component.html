@@ -1,8 +1,9 @@
 <div class="my-wiper-container">
   what?
-  <swiper [config]="config" [(index)]="index" class="swiper-container">
-    <div *ngFor="let slide of slides" class="swiper-slide" [ngStyle]="{'background-image':'url(' + slide.imgUrl +')'}">
+  <div class="swiper-container" [swiper]="config" [(index)]="index">
+    <div class="swiper-wrapper">
+      <div *ngFor="let slide of slides" class="swiper-slide" [ngStyle]="{'background-image':'url(' + slide.imgUrl +')'}">
+      </div>
     </div>
-  </swiper>
-
+  </div>
 </div>
