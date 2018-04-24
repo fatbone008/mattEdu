@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-first-page',
   templateUrl: './first-page.component.html',
-  styleUrls: ['./first-page.component.css']
+  styleUrls: ['./first-page.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FirstPageComponent implements OnInit {
 
@@ -15,7 +16,10 @@ export class FirstPageComponent implements OnInit {
     slidesPerView: 1,
     scrollbar: false,
     navigation: false,
-    pagination: true
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets'
+    }
   };
 
   public slides = [
