@@ -15,7 +15,7 @@ export class FirstPageComponent implements OnInit {
     slidesPerView: 1,
     scrollbar: false,
     navigation: false,
-    pagination: false
+    pagination: true
   };
 
   public slides = [

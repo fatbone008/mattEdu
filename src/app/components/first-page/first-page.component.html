@@ -1,9 +1,11 @@
 <div class="my-wiper-container">
-  what?
+  <img src="./assets/images/block.png" alt="">
   <div class="swiper-container" [swiper]="config" [(index)]="index">
     <div class="swiper-wrapper">
       <div *ngFor="let slide of slides" class="swiper-slide" [ngStyle]="{'background-image':'url(' + slide.imgUrl +')'}">
       </div>
     </div>
+
+    <div class="swiper-pagination"></div>
   </div>
 </div>

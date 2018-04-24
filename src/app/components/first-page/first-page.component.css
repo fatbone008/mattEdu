@@ -1,13 +1,24 @@
 .my-wiper-container {
   margin: 0 auto;
   max-width: 768px;
-  height: 500px;
+  position: relative;
+}
+.my-wiper-container img{
+  width: 100%;
+  height: auto;
 }
 .swiper-container {
+  position: absolute;
+  width: 100%;
   height: 100%;
+  bottom: 0;
 }
 .swiper-slide {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #ffffff;
 }
