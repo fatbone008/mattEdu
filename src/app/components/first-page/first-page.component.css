@@ -45,3 +45,26 @@ book-reading area
   background-color: antiquewhite;
   position: relative;
 }
+.arrow-wrapper .arrow-body{
+  background-color: lightskyblue;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+  box-shadow: 3px 1px 16px lightskyblue;
+  margin: 15px 0;
+  padding: 0 10px;
+  line-height: 30px;
+  color: white;
+}
+.arrow-body:before {
+  content: "";
+  position: absolute;
+  right: -13px;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  border-left: 13px solid lightskyblue;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  font-size: 12px;
+}
