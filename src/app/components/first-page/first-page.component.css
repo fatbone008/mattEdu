@@ -41,9 +41,14 @@ book-reading area
 }
 .books-swiper-container{
   width: 100%;
-  height: 200px;
+  height: 180px;
   background-color: antiquewhite;
   position: relative;
+  padding: 10px;
+}
+.books-swiper-container .books-swiper{
+  height: 180px;
+  width: 400px;
 }
 .arrow-wrapper .arrow-body{
   background-color: lightskyblue;

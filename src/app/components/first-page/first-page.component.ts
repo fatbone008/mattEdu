@@ -22,6 +22,17 @@ export class FirstPageComponent implements OnInit {
     }
   };
 
+  public booksConfig: SwiperConfigInterface = {
+    direction: 'horizontal',
+    slidesPerView: 1,
+    scrollbar: false,
+    navigation: false,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets'
+    }
+  };
+
   public slides = [
     {
       name: 'first style',
