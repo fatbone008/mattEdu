@@ -7,7 +7,7 @@
   width: 100%;
   height: auto;
 }
-.swiper-container {
+.my-wiper-container>.swiper-container {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -46,9 +46,20 @@ book-reading area
   position: relative;
   padding: 10px;
 }
-.books-swiper-container .books-swiper{
-  height: 180px;
-  width: 400px;
+.books-swiper-container>.swiper-container{
+  background-color: white;
+  height: 100%;
+}
+.books-swiper-container>.swiper-container .swiper-slide{
+  display: flex;
+  align-items: stretch;
+}
+.slider-icon {
+  width: 10px;
+  height: 10px;
+}
+.slider-text {
+  flex-grow: 1;
 }
 .arrow-wrapper .arrow-body{
   background-color: lightskyblue;
@@ -73,3 +84,4 @@ book-reading area
   border-bottom: 13px solid transparent;
   font-size: 12px;
 }
+

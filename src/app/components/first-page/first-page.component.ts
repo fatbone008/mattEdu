@@ -1,5 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
+import shave from 'shave';
 
 @Component({
   selector: 'app-first-page',
@@ -7,7 +8,7 @@ import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
   styleUrls: ['./first-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class FirstPageComponent implements OnInit {
+export class FirstPageComponent implements OnInit, AfterViewInit {
 
   index = 1;
 
@@ -53,6 +54,11 @@ export class FirstPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+    shave('.english-title', 50);
+    shave('.chinese-title', 25);
   }
 
 }
