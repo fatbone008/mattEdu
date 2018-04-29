@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import shave from 'shave';
+import {SwiperedCard} from '../../models/SwiperedCard';
 
 @Component({
   selector: 'app-first-page',
@@ -28,11 +29,10 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     slidesPerView: 1,
     scrollbar: false,
     navigation: false,
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets'
-    }
+    pagination: false
   };
+
+  classicStories: Array<SwiperedCard> = [];
 
   public slides = [
     {
@@ -54,6 +54,26 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+    this.classicStories = [
+      new SwiperedCard({
+        chineseTitle: '这是第一标题',
+        englishTitle: 'This is the first Title',
+        author: 'Fatbone',
+        nationality: '中'
+      }),
+      new SwiperedCard({
+        chineseTitle: '这是第二标题',
+        englishTitle: 'This is the second Title',
+        author: 'Matt',
+        nationality: '美'
+      }),
+      new SwiperedCard({
+        chineseTitle: '这是第三标题',
+        englishTitle: 'This is the third Title',
+        author: 'Willian',
+        nationality: '英'
+      })
+    ];
   }
 
   ngAfterViewInit(): void {
