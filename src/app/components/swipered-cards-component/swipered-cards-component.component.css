@@ -1,0 +1,61 @@
+
+.books-swiper-container{
+  width: 100%;
+  height: 180px;
+  /*background-color: antiquewhite;*/
+  position: relative;
+  overflow: hidden;
+  overflow-y: visible;
+  /*padding: 10px;*/
+}
+.books-swiper-container>.swiper-container{
+  margin: 0;
+  background-color: white;
+  width: 289.35px;
+  height: 141px;
+  overflow: visible;
+}
+.books-swiper-container>.swiper-container .swiper-slide{
+  display: flex;
+  align-items: stretch;
+  border: 0.5px solid #EAEAEA;
+  border-radius: 12px;
+  box-shadow: 10px 10px 30px 0 #ECECEC;
+}
+.slider-icon {
+  margin: 19.5px 0 0 12.4px;
+  width: 20px;
+  height: 22.66px;
+  background: #ffffff url(../../../assets/images/swiperCardIcon.png) no-repeat ;
+  /*flex-grow: 1;*/
+  background-size: cover;
+}
+.slider-text {
+  margin: 18.666666px 0 0 0;
+  padding-left: 11px;
+  flex-grow: 1;
+  font-size: 16px;
+  line-height: 18px;
+  width: 0px;
+  color: #3B3B3B;
+}
+.english-title{
+  margin-bottom: 10px;
+}
+.chinese-title{
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+/*作者行*/
+.author-info {
+  display: flex;
+  color: #949494;
+}
+.author-info .author{
+  flex-grow: 1;
+  width: 0;
+}
+.author-info .nationality{
+  display: block;
+  margin-right: 15px;
+}

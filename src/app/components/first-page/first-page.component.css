@@ -39,28 +39,6 @@ book-reading area
   color: darkgray;
   margin: 5px 0 10px 2%;
 }
-.books-swiper-container{
-  width: 100%;
-  height: 180px;
-  background-color: antiquewhite;
-  position: relative;
-  padding: 10px;
-}
-.books-swiper-container>.swiper-container{
-  background-color: white;
-  height: 100%;
-}
-.books-swiper-container>.swiper-container .swiper-slide{
-  display: flex;
-  align-items: stretch;
-}
-.slider-icon {
-  width: 10px;
-  height: 10px;
-}
-.slider-text {
-  flex-grow: 1;
-}
 .arrow-wrapper .arrow-body{
   background-color: lightskyblue;
   height: 30px;

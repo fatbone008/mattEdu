@@ -19,23 +19,5 @@
     <div class="arrow-body">经典故事</div>
   </div>
 
-  <div class="books-swiper-container">
-    <div  class="swiper-container" [swiper]="booksConfig">
-
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let story of classicStories">
-          <div class="slider-icon">
-            <i class="demo-icon icon-doc-text"></i>
-          </div>
-          <div class="slider-text">
-            <div class="english-title">{{story.englishTitle}}</div>
-            <div class="chinese-title">{{story.chineseTitle}}</div>
-            <div class="author">- {{story.author}}</div><div class="nationality">{{story.nationality}}</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
+  <app-swipered-cards-component [cardsContent]="classicStories"></app-swipered-cards-component>
 </div>

@@ -1,0 +1,20 @@
+<div class="books-swiper-container">
+  <div  class="swiper-container" [swiper]="booksConfig">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let story of cardsContent">
+        <div class="slider-icon">
+        </div>
+        <div class="slider-text">
+          <div class="english-title">{{story.englishTitle}}</div>
+          <div class="chinese-title">{{story.chineseTitle}}</div>
+          <div class="author-info">
+            <p class="author">- {{story.author}}</p>
+            <p class="nationality">{{story.nationality}}</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

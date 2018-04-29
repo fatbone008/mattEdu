@@ -9,6 +9,7 @@ import { FirstPageComponent } from './components/first-page/first-page.component
 import {RouterModule, Routes} from '@angular/router';
 import { AudioComponent } from './components/audio/audio.component';
 import {AudioCounterService} from './components/audio/audio-counter.service';
+import { SwiperedCardsComponentComponent } from './components/swipered-cards-component/swipered-cards-component.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomepageComponent,
     FirstPageComponent,
-    AudioComponent
+    AudioComponent,
+    SwiperedCardsComponentComponent
   ],
   imports: [
     BrowserModule,

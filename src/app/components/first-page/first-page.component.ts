@@ -56,8 +56,8 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.classicStories = [
       new SwiperedCard({
-        chineseTitle: '这是第一标题',
-        englishTitle: 'This is the first Title',
+        chineseTitle: '这是第一标题，如果特别长就会被砍',
+        englishTitle: 'This is the first TitleThis is the first TitleThis is the first TitleThis is the first TitleThis is the first Title',
         author: 'Fatbone',
         nationality: '中'
       }),
@@ -71,14 +71,14 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
         chineseTitle: '这是第三标题',
         englishTitle: 'This is the third Title',
         author: 'Willian',
-        nationality: '英'
+        nationality: '意'
       })
     ];
   }
 
   ngAfterViewInit(): void {
-    shave('.english-title', 50);
-    shave('.chinese-title', 25);
+    // shave('.english-title', 50);
+    // shave('.chinese-title', 25);
   }
 
 }
