@@ -1,0 +1,26 @@
+<div class="app-my-record-card-container">
+  <img class="background" src="../../../../assets/images/recordcar-back.png" alt="">
+  <div class="context">
+
+    <div class="context-left">
+      <div class="card-title">{{cardTitle}}</div>
+      <div class="correct">
+        <div class="dot"></div>
+        <div>正确</div>
+        <div class="number">{{correctRate}}</div>
+      </div>
+      <div class="incorrect">
+        <div class="dot"></div>
+        <div>错误</div>
+        <div class="number">{{incorrectRate}}</div>
+      </div>
+    </div>
+
+    <div class="context-right">
+      <canvas [id]="idName">{{ chart }}</canvas>
+      <div class="rate-info">{{rate}}<span style="font-size: .5em;font-weight: normal;">%</span>
+        <p style="font-size: .4em;font-weight: normal;color:#8a8a8a;">正确率</p>
+      </div>
+    </div>
+  </div>
+</div>

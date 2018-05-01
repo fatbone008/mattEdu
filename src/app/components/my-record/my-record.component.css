@@ -1,0 +1,44 @@
+.my-record-container {
+  background-image: linear-gradient(53deg, #85BBFA 0%,#397CED 100%);
+  width: 100%;
+  max-width: 768px;
+  padding: 1em 0 0 0;
+}
+.my-record-container .header-line{
+  position: relative;
+  font-size: 20px;
+}
+.my-record-container .header-line .head-text{
+  text-align: center;
+  color: #ffffff;
+  padding: .5em;
+  background-image: url('../../../assets/images/Group37@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.my-record-container .header-line .share-icon{
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  font-size: 20px;
+  color: #ffffff;
+}
+.snow-mountain{
+  background-image: url("../../../assets/images/snowmount.png");
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+}
+.rate-panel {
+  background-color: white;
+  width: 100%;
+  max-width: 768px;
+  padding: 1em 1em 0 1em;
+}
+.rate-panel .rate-title{
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 1em 0;
+}

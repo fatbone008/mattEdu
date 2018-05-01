@@ -1,0 +1,20 @@
+<div class="my-record-container">
+  <div class="header-line">
+    <div class="head-text">我的战绩</div>
+    <i class="fa fa-share-square-o share-icon"></i>
+  </div>
+
+  <app-my-record-card [cardTitle]="cardTitle1" [correctRate]="card1Correct" [incorrectRate]="card1Incorrect" [idName]="'ij'"></app-my-record-card>
+  <app-my-record-card [cardTitle]="cardTitle2" [correctRate]="card2Correct" [incorrectRate]="card2Incorrect" [idName]="'iji'"></app-my-record-card>
+
+  <div class="snow-mountain">
+
+  </div>
+</div>
+
+<div class="rate-panel">
+  <div class="rate-title">
+    读单词排行榜
+  </div>
+  <app-word-rate [items]="items"></app-word-rate>
+</div>

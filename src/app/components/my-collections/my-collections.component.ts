@@ -37,6 +37,46 @@ export class MyCollectionsComponent implements OnInit {
           n.猫； 猫科动物； 狠毒的女人； 爵士乐爱好者<br>
           vt.把（锚）吊放在锚架上；
           `
+      }),
+      new Dictionary({
+        wordSpell: 'Cat',
+        explain: `
+          cat: 英 [kæt] 美 [kæt] <br>
+          n.猫； 猫科动物； 狠毒的女人； 爵士乐爱好者<br>
+          vt.把（锚）吊放在锚架上；
+          `
+      }),
+      new Dictionary({
+        wordSpell: 'Cat',
+        explain: `
+          cat: 英 [kæt] 美 [kæt] <br>
+          n.猫； 猫科动物； 狠毒的女人； 爵士乐爱好者<br>
+          vt.把（锚）吊放在锚架上；
+          `
+      }),
+      new Dictionary({
+        wordSpell: 'Cat',
+        explain: `
+          cat: 英 [kæt] 美 [kæt] <br>
+          n.猫； 猫科动物； 狠毒的女人； 爵士乐爱好者<br>
+          vt.把（锚）吊放在锚架上；
+          `
+      }),
+      new Dictionary({
+        wordSpell: 'Cat',
+        explain: `
+          cat: 英 [kæt] 美 [kæt] <br>
+          n.猫； 猫科动物； 狠毒的女人； 爵士乐爱好者<br>
+          vt.把（锚）吊放在锚架上；
+          `
+      }),
+      new Dictionary({
+        wordSpell: 'Cat',
+        explain: `
+          cat: 英 [kæt] 美 [kæt] <br>
+          n.猫； 猫科动物； 狠毒的女人； 爵士乐爱好者<br>
+          vt.把（锚）吊放在锚架上；
+          `
       })
     ];
   }
