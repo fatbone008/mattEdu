@@ -1,0 +1,22 @@
+<div class="books-swiper-container">
+  <div  class="swiper-container" [swiper]="booksConfig">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let story of booksContent">
+        <div class="book-page" [ngStyle]="{'background-image':'url(' + story.img +')'}"></div>
+        <div class="book-detail">
+          <div class="english-title">{{story.englishTitle}}</div>
+          <div class="chinese-title">{{story.chineseTitle}}</div>
+          <div class="splash"></div>
+          <div class="english-author">{{story.englighAuthor}}</div>
+          <div class="chinese-info">
+            <div class="chinese-author">{{story.chineseAuthor}}</div>
+            <div class="level">{{story.level}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -13,11 +13,27 @@
 
 <div class="book-reading-container">
   <div class="title">看看书</div>
-  <div class="subtitle">适合中级读者阅读</div>
+
+  <app-swipered-books-component [booksContent]="books"></app-swipered-books-component>
+</div>
+
+<div class="book-reading-container">
+  <div class="title">看看短故事</div>
+  <!--<div class="subtitle">适合中级读者阅读</div>-->
 
   <div class="arrow-wrapper">
     <div class="arrow-body">经典故事</div>
   </div>
 
   <app-swipered-cards-component [cardsContent]="classicStories"></app-swipered-cards-component>
+
+  <div class="arrow-wrapper">
+    <div class="arrow-body">童话故事</div>
+  </div>
+
+  <app-swipered-cards-component [cardsContent]="farelyStories"></app-swipered-cards-component>
+
+  <div class="title">看看新闻</div>
+
+  <app-swipered-cards-component [cardsContent]="news"></app-swipered-cards-component>
 </div>

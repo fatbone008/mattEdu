@@ -1,14 +1,14 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
-import {SwiperedCard} from '../../models/SwiperedCard';
+import {SwiperedBook} from '../../models/SwiperedBook';
 import shave from 'shave';
 
 @Component({
-  selector: 'app-swipered-cards-component',
-  templateUrl: './swipered-cards-component.component.html',
-  styleUrls: ['./swipered-cards-component.component.css']
+  selector: 'app-swipered-books-component',
+  templateUrl: './swipered-books-component.component.html',
+  styleUrls: ['./swipered-books-component.component.css']
 })
-export class SwiperedCardsComponentComponent implements OnInit, AfterViewInit {
+export class SwiperedBooksComponentComponent implements OnInit, AfterViewInit {
 
   booksConfig: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -20,11 +20,12 @@ export class SwiperedCardsComponentComponent implements OnInit, AfterViewInit {
     freeMode: true
   };
 
-  @Input() cardsContent: Array<SwiperedCard>
+  @Input() booksContent: Array<SwiperedBook>
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit(): void {
@@ -32,5 +33,4 @@ export class SwiperedCardsComponentComponent implements OnInit, AfterViewInit {
     shave('.chinese-title', 25);
     shave('.author', 25);
   }
-
 }

@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import shave from 'shave';
 import {SwiperedCard} from '../../models/SwiperedCard';
+import {SwiperedBook} from '../../models/SwiperedBook';
 
 @Component({
   selector: 'app-first-page',
@@ -24,15 +25,10 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     }
   };
 
-  public booksConfig: SwiperConfigInterface = {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    scrollbar: false,
-    navigation: false,
-    pagination: false
-  };
-
   classicStories: Array<SwiperedCard> = [];
+  books: Array<SwiperedBook> = [];
+  farelyStories: Array<SwiperedCard> = [];
+  news: Array<SwiperedCard> = [];
 
   public slides = [
     {
@@ -72,6 +68,73 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
         englishTitle: 'This is the third Title',
         author: 'Willian',
         nationality: '意'
+      })
+    ];
+    this.farelyStories = [
+      new SwiperedCard({
+        chineseTitle: '这是第一标题，如果特别长就会被砍',
+        englishTitle: 'This is the first TitleThis is the first TitleThis is the first TitleThis is the first TitleThis is the first Title',
+        author: 'Fatbone',
+        nationality: '中'
+      }),
+      new SwiperedCard({
+        chineseTitle: '这是第二标题',
+        englishTitle: 'This is the second Title',
+        author: 'Matt',
+        nationality: '美'
+      }),
+      new SwiperedCard({
+        chineseTitle: '这是第三标题',
+        englishTitle: 'This is the third Title',
+        author: 'Willian',
+        nationality: '意'
+      })
+    ];
+    this.news = [
+      new SwiperedCard({
+        chineseTitle: '这是第一标题，如果特别长就会被砍',
+        englishTitle: 'This is the first TitleThis is the first TitleThis is the first TitleThis is the first TitleThis is the first Title',
+        author: 'Fatbone',
+        nationality: '中'
+      }),
+      new SwiperedCard({
+        chineseTitle: '这是第二标题',
+        englishTitle: 'This is the second Title',
+        author: 'Matt',
+        nationality: '美'
+      }),
+      new SwiperedCard({
+        chineseTitle: '这是第三标题',
+        englishTitle: 'This is the third Title',
+        author: 'Willian',
+        nationality: '意'
+      })
+    ];
+
+    this.books = [
+      new SwiperedBook({
+        img: '../../../assets/images/bookpage.png',
+        englighAuthor: 'alipapa',
+        englishTitle: 'The old man and sea',
+        chineseAuthor: '阿里巴巴',
+        chineseTitle: '老人与海',
+        level: '中'
+      }),
+      new SwiperedBook({
+        img: '../../../assets/images/bookpage.png',
+        englighAuthor: 'alipapa',
+        englishTitle: 'The old man and sea',
+        chineseAuthor: '阿里巴巴',
+        chineseTitle: '老人与海',
+        level: '中'
+      }),
+      new SwiperedBook({
+        img: '../../../assets/images/bookpage.png',
+        englighAuthor: 'alipapa',
+        englishTitle: 'The old man and sea',
+        chineseAuthor: '阿里巴巴',
+        chineseTitle: '老人与海',
+        level: '中'
       })
     ];
   }

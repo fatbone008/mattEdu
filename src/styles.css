@@ -6,6 +6,12 @@
 html,body{
   height: 100%;
 }
+body{
+  font-size: 10px;
+}
+html{
+  font-size: 100%;
+}
 div {
   box-sizing:border-box;
 }

@@ -1,0 +1,27 @@
+.collection-container {
+  margin: 3.2em 1.4em 0 1.4em;
+}
+.collection-container .word-spell {
+  margin-bottom: 0.8em;
+  display: flex;
+}
+
+.collection-container .spell {
+  font-size: 2em;
+  flex-grow: 1;
+  width: 0;
+  font-weight: bold;
+}
+.collection-container .star {
+  width: 2.25em;
+  height: 2.14em;
+  background-image: url('../../../../assets/images/Star@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.collection-container .word-explain{
+  /*margin: 3.2em 0 0 1.4em;*/
+  font-size: 1.5em;
+  color: #6A6A6A;
+}

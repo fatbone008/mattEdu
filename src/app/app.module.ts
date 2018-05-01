@@ -10,6 +10,9 @@ import {RouterModule, Routes} from '@angular/router';
 import { AudioComponent } from './components/audio/audio.component';
 import {AudioCounterService} from './components/audio/audio-counter.service';
 import { SwiperedCardsComponentComponent } from './components/swipered-cards-component/swipered-cards-component.component';
+import { SwiperedBooksComponentComponent } from './components/swipered-books-component/swipered-books-component.component';
+import { MyCollectionsComponent } from './components/my-collections/my-collections.component';
+import { CollectionComponent } from './components/my-collections/collection/collection.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -19,7 +22,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 
 const appRoutes: Routes = [
   { path: 'firstPage', component: FirstPageComponent },
-  { path: 'homepage', component: HomepageComponent}
+  { path: 'homepage', component: HomepageComponent},
+  { path: 'myCollections', component: MyCollectionsComponent}
 ];
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ const appRoutes: Routes = [
     HomepageComponent,
     FirstPageComponent,
     AudioComponent,
-    SwiperedCardsComponentComponent
+    SwiperedCardsComponentComponent,
+    SwiperedBooksComponentComponent,
+    MyCollectionsComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,

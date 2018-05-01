@@ -1,3 +1,6 @@
+body{
+  background-color: #f8f8f8;
+}
 .my-wiper-container {
   margin: 0 auto;
   max-width: 768px;
@@ -17,6 +20,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #ffffff;
 }
 .swiper-pagination-bullet-active {
   opacity: 1;
