@@ -1,0 +1,20 @@
+.introduct-container {
+  width: 100%;
+  max-width: 768px;
+  height: 100%;
+  background: top center url("../../../assets/images/bella-huang-596578-unsplash.jpg") no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  padding-top: 30%;
+}
+.introduct-container .panel {
+  width: 90%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin: 0 auto;
+  background: #ffffff;
+  min-height: 400px;
+  -webkit-box-shadow:  0 0 20px 2px #8a8a8a;
+  -moz-box-shadow:  0 0 20px 2px #8a8a8a;
+  box-shadow:  0 0 20px 2px #8a8a8a;
+}

@@ -16,6 +16,7 @@ import { CollectionComponent } from './components/my-collections/collection/coll
 import { MyRecordComponent } from './components/my-record/my-record.component';
 import { MyRecordCardComponent } from './components/my-record/my-record-card/my-record-card.component';
 import { WordRateComponent } from './components/my-record/word-rate/word-rate.component';
+import { IntroductComponent } from './components/introduct/introduct.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   { path: 'firstPage', component: FirstPageComponent },
   { path: 'homepage', component: HomepageComponent},
   { path: 'myCollections', component: MyCollectionsComponent},
-  { path: 'myRecord', component: MyRecordComponent}
+  { path: 'myRecord', component: MyRecordComponent},
+  { path: 'introduct', component: IntroductComponent}
 ];
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     CollectionComponent,
     MyRecordComponent,
     MyRecordCardComponent,
-    WordRateComponent
+    WordRateComponent,
+    IntroductComponent
   ],
   imports: [
     BrowserModule,
