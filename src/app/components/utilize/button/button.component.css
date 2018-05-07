@@ -1,0 +1,12 @@
+.button{
+  border: 1px solid #0088cc;
+  border-radius: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+}
+.button .textile {
+  font-size: 1.4em;
+  font-weight: bold;
+}

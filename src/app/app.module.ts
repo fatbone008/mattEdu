@@ -17,6 +17,7 @@ import { MyRecordComponent } from './components/my-record/my-record.component';
 import { MyRecordCardComponent } from './components/my-record/my-record-card/my-record-card.component';
 import { WordRateComponent } from './components/my-record/word-rate/word-rate.component';
 import { IntroductComponent } from './components/introduct/introduct.component';
+import { ButtonComponent } from './components/utilize/button/button.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     MyRecordComponent,
     MyRecordCardComponent,
     WordRateComponent,
-    IntroductComponent
+    IntroductComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

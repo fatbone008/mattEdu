@@ -5,7 +5,7 @@
   background: top center url("../../../assets/images/bella-huang-596578-unsplash.jpg") no-repeat;
   background-size: contain;
   margin: 0 auto;
-  padding-top: 30%;
+  padding-top: 50%;
 }
 .introduct-container .panel {
   width: 90%;
@@ -14,7 +14,33 @@
   margin: 0 auto;
   background: #ffffff;
   min-height: 400px;
-  -webkit-box-shadow:  0 0 20px 2px #8a8a8a;
-  -moz-box-shadow:  0 0 20px 2px #8a8a8a;
-  box-shadow:  0 0 20px 2px #8a8a8a;
+  height: 100%;
+  -webkit-box-shadow:  0 0 0px 0px #f3f3f3;
+  -moz-box-shadow:  0 0 0px 0px #f3f3f3;
+  box-shadow:  0 0 0px 0px #f3f3f3;
+  padding: 0 8%;
+}
+.content {
+  width: 100%;
+}
+.content .title{
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 1em auto;
+  text-align: center;
+}
+.content .intro{
+  font-size: 1.4em;
+  /*padding: 0 8%;*/
+  width: 100%;
+}
+.button2 {
+  padding: 4% 8%;
+  width: 84%;
+  height: 0px;
+}
+.button3 {
+  padding: 4% 0;
+  float: right;
+  width: 50%;
 }
