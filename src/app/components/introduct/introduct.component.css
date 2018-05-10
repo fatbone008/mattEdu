@@ -9,12 +9,13 @@
 }
 .introduct-container .panel {
   width: 90%;
+  height:100%;
   border: 1px solid lightgray;
   border-radius: 10px;
   margin: 0 auto;
   background: #ffffff;
   min-height: 400px;
-  -webkit-box-shadow:  0 0 20px 2px #8a8a8a;
-  -moz-box-shadow:  0 0 20px 2px #8a8a8a;
-  box-shadow:  0 0 20px 2px #8a8a8a;
+  -webkit-box-shadow:  0 0 0px 0px #f3f3f3;
+  -moz-box-shadow:  0 0 0px 0px #f3f3f3;
+  box-shadow:  0 0 0px 0px #f3f3f3;
 }
