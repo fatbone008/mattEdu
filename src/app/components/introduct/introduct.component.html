@@ -1,8 +1,12 @@
 <div class="introduct-container">
-<div class="panel">
-  <div class="content">
-    <div class="title">1</div>
-    <div class="intro">2</div>
+  <div class="panel">
+    <div class="content">
+      <div class="title">{{ introduceTitle }}</div>
+      <div class="intro">{{ "&nbsp;&nbsp;" + introduce }}</div>
+
+      <app-button class="button2" [textile]="'人物表'"></app-button>
+      <app-button class="button2" [textile]="'视频介绍'"></app-button>
+      <app-button class="button3" [textile]="'开始'"></app-button>
+    </div>
   </div>
-</div>
 </div>
