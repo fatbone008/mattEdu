@@ -18,6 +18,7 @@ import { MyRecordCardComponent } from './components/my-record/my-record-card/my-
 import { WordRateComponent } from './components/my-record/word-rate/word-rate.component';
 import { IntroductComponent } from './components/introduct/introduct.component';
 import { ButtonComponent } from './components/utilize/button/button.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -51,7 +52,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     SwiperModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     {

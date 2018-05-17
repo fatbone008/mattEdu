@@ -3,6 +3,7 @@ import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import shave from 'shave';
 import {SwiperedCard} from '../../models/SwiperedCard';
 import {SwiperedBook} from '../../models/SwiperedBook';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-first-page',
@@ -47,7 +48,7 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.classicStories = [
@@ -142,6 +143,12 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // shave('.english-title', 50);
     // shave('.chinese-title', 25);
+  }
+
+  requestJSON() {
+    this.http.get('/api/testingJson').subscribe( res => {
+      console.log(res);
+    });
   }
 
 }
