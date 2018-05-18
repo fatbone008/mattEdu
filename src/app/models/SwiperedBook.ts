@@ -3,7 +3,7 @@ export class SwiperedBook {
   chineseTitle = '';
   img = '';
   chineseAuthor = '';
-  englighAuthor
+  englighAuthor = '';
 
   private _level = '';
 
