@@ -4,6 +4,8 @@ import shave from 'shave';
 import {SwiperedCard} from '../../models/SwiperedCard';
 import {SwiperedBook} from '../../models/SwiperedBook';
 import {HttpClient} from '@angular/common/http';
+import {BookServiceService} from '../../services/book-service.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-first-page',
@@ -47,8 +49,9 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       imgUrl: './assets/images/slide4.jpg'
     }
   ];
+  books$: Observable<SwiperedBook[]>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private bookService: BookServiceService) { }
 
   ngOnInit() {
     this.classicStories = [
@@ -112,9 +115,13 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       })
     ];
 
+    // this.bookService.getBooks().subscribe(res => {
+    //   this.books = res;
+    // });
+    this.books$ = this.bookService.getBooks();
     this.books = [
       new SwiperedBook({
-        img: '../../../assets/images/bookpage.png',
+        img: 'https://fatbone008-snapshot.oss-cn-beijing.aliyuncs.com/matt/bookpage.png',
         englighAuthor: 'alipapa',
         englishTitle: 'The old man and sea',
         chineseAuthor: '阿里巴巴',

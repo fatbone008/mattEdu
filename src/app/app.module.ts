@@ -19,6 +19,7 @@ import { WordRateComponent } from './components/my-record/word-rate/word-rate.co
 import { IntroductComponent } from './components/introduct/introduct.component';
 import { ButtonComponent } from './components/utilize/button/button.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {BookServiceService} from './services/book-service.service';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG
     },
-    AudioCounterService
+    AudioCounterService,
+    BookServiceService
   ],
   bootstrap: [AppComponent]
 })

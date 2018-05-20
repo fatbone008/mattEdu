@@ -17,7 +17,8 @@ export class SwiperedBooksComponentComponent implements OnInit, AfterViewInit {
     navigation: false,
     pagination: false,
     spaceBetween: 10.6,
-    freeMode: true
+    freeMode: true,
+    observer: true
   };
 
   @Input() booksContent: Array<SwiperedBook>

@@ -17,7 +17,8 @@ export class SwiperedCardsComponentComponent implements OnInit, AfterViewInit {
     navigation: false,
     pagination: false,
     spaceBetween: 10.6,
-    freeMode: true
+    freeMode: true,
+    observer: true
   };
 
   @Input() cardsContent: Array<SwiperedCard>
