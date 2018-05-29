@@ -9,6 +9,8 @@ export class ButtonComponent implements OnInit {
 
   @Input() textile = '按钮';
 
+  @Input('styleOption') styleOption;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,14 @@
+.container{
+  max-width: 1024px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 10% 5% 0 5%;
+}
+.question {
+  font-size: 1em;
+  font-weight: bold;
+}
+.answer {
+  display: block;
+  margin: 10px 0;
+}

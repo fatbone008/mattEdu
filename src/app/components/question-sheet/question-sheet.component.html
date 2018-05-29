@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="question">{{question}}</div>
+  <app-button class="answer"
+              *ngFor="let a of answers"
+              [styleOption]="a.style"
+              [textile]="a.text"></app-button>
+</div>
