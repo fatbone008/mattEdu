@@ -18,11 +18,12 @@ export class OptionButtonDirective implements AfterViewInit, OnInit {
 
   ngOnInit() {
     console.log('it\'s true ', this.styleOption);
+    if (this.styleOption) this.renderer.addClass(this.el.nativeElement, this.styleOption);
     if (this.styleOption === 'option') {
-      this.renderer.setStyle(this.el.nativeElement, 'justifyContent', 'flex-start');
-      this.renderer.setStyle(this.el.nativeElement, 'padding', '0 5%');
-      this.renderer.setStyle(this.el.nativeElement, 'borderColor', '#c1d8ff');
-      this.renderer.setStyle(this.el.nativeElement, 'fontWeigh', 'normal');
+      // this.renderer.setStyle(this.el.nativeElement, 'justifyContent', 'flex-start');
+      // this.renderer.setStyle(this.el.nativeElement, 'padding', '0 5%');
+      // this.renderer.setStyle(this.el.nativeElement, 'borderColor', '#c1d8ff');
+      // this.renderer.setStyle(this.el.nativeElement, 'fontWeigh', 'normal');
     }
 
   }

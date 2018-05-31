@@ -16,8 +16,8 @@ export class QuestionSheetComponent implements OnInit {
 
   answers: Array<any> = [
     {
-      text: 'Because another farmer wanted him',
-      style: ''
+      text: 'Because another farmer wanted him Because another farmer wanted him Because another farmer wanted him',
+      style: 'correct'
     },
     {
       text: 'As a present to Albert',
@@ -25,11 +25,11 @@ export class QuestionSheetComponent implements OnInit {
     },
     {
       text: 'He needed another farmhouse',
-      style: ''
+      style: 'option'
     },
     {
       text: 'To please his wife',
-      style: ''
+      style: 'incorrect'
     }
   ]
 
