@@ -1,4 +1,4 @@
-import {AfterViewInit, Directive, ElementRef, Input, OnInit, Renderer, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, HostListener, Input, OnInit, Renderer, Renderer2} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 @Directive({
@@ -7,7 +7,17 @@ import {Observable} from 'rxjs/Observable';
 export class OptionButtonDirective implements AfterViewInit, OnInit {
 
   // @Input() styleName: Observable<string> = Observable.of('');
-  @Input('appOptionButton') styleOption;
+  _styleOption;
+
+  get styleOption() {
+    return this._styleOption;
+  }
+
+  @Input('appOptionButton')
+  set styleOption(style) {
+    this._styleOption = style;
+    this.changeStyle(style);
+  }
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
   }
@@ -17,15 +27,13 @@ export class OptionButtonDirective implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    console.log('it\'s true ', this.styleOption);
-    if (this.styleOption) this.renderer.addClass(this.el.nativeElement, this.styleOption);
-    if (this.styleOption === 'option') {
-      // this.renderer.setStyle(this.el.nativeElement, 'justifyContent', 'flex-start');
-      // this.renderer.setStyle(this.el.nativeElement, 'padding', '0 5%');
-      // this.renderer.setStyle(this.el.nativeElement, 'borderColor', '#c1d8ff');
-      // this.renderer.setStyle(this.el.nativeElement, 'fontWeigh', 'normal');
-    }
-
+    console.log('it\'s true ', this._styleOption);
   }
 
+  // 根据StyleOption的值修改样式
+  private changeStyle(style) {
+    if (this.styleOption) {
+      this.renderer.addClass(this.el.nativeElement, style);
+    }
+  }
 }
