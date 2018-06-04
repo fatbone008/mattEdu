@@ -35,7 +35,8 @@ const appRoutes: Routes = [
   { path: 'myCollections', component: MyCollectionsComponent},
   { path: 'myRecord', component: MyRecordComponent},
   { path: 'introduct', component: IntroductComponent},
-  { path: 'question', component: QuestionSheetComponent}
+  { path: 'question', component: QuestionSheetComponent},
+  { path: 'audio', component: AudioComponent}
 ];
 @NgModule({
   declarations: [

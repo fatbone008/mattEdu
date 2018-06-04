@@ -6,6 +6,7 @@ import {SwiperedBook} from '../../models/SwiperedBook';
 import {HttpClient} from '@angular/common/http';
 import {BookServiceService} from '../../services/book-service.service';
 import {Observable} from 'rxjs/Observable';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-first-page',
@@ -51,7 +52,9 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   ];
   books$: Observable<SwiperedBook[]>;
 
-  constructor(private http: HttpClient, private bookService: BookServiceService) { }
+  constructor(private http: HttpClient,
+              private bookService: BookServiceService,
+              private router: Router) { }
 
   ngOnInit() {
     this.classicStories = [
@@ -155,7 +158,11 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   requestJSON() {
     this.http.get('/api/testingJson').subscribe( res => {
       console.log(res);
+      this.routeToNext();
     });
   }
 
+  routeToNext(){
+    this.router.navigate(['/introduct']);
+  }
 }
