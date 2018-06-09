@@ -3,6 +3,10 @@ import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import shave from 'shave';
 import {SwiperedCard} from '../../models/SwiperedCard';
 import {SwiperedBook} from '../../models/SwiperedBook';
+import {HttpClient} from '@angular/common/http';
+import {BookServiceService} from '../../services/book-service.service';
+import {Observable} from 'rxjs/Observable';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-first-page',
@@ -46,8 +50,11 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       imgUrl: './assets/images/slide4.jpg'
     }
   ];
+  books$: Observable<SwiperedBook[]>;
 
-  constructor() { }
+  constructor(private http: HttpClient,
+              private bookService: BookServiceService,
+              private router: Router) { }
 
   ngOnInit() {
     this.classicStories = [
@@ -111,32 +118,36 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       })
     ];
 
-    this.books = [
-      new SwiperedBook({
-        img: '../../../assets/images/bookpage.png',
-        englighAuthor: 'alipapa',
-        englishTitle: 'The old man and sea',
-        chineseAuthor: '阿里巴巴',
-        chineseTitle: '老人与海',
-        level: '中'
-      }),
-      new SwiperedBook({
-        img: '../../../assets/images/bookpage.png',
-        englighAuthor: 'alipapa',
-        englishTitle: 'The old man and sea',
-        chineseAuthor: '阿里巴巴',
-        chineseTitle: '老人与海',
-        level: '中'
-      }),
-      new SwiperedBook({
-        img: '../../../assets/images/bookpage.png',
-        englighAuthor: 'alipapa',
-        englishTitle: 'The old man and sea',
-        chineseAuthor: '阿里巴巴',
-        chineseTitle: '老人与海',
-        level: '中'
-      })
-    ];
+    // this.bookService.getBooks().subscribe(res => {
+    //   this.books = res;
+    // });
+    this.books$ = this.bookService.getBooks();
+    // this.books = [
+    //   new SwiperedBook({
+    //     img: 'https://fatbone008-snapshot.oss-cn-beijing.aliyuncs.com/matt/bookpage.png',
+    //     englighAuthor: 'alipapa',
+    //     englishTitle: 'The old man and sea',
+    //     chineseAuthor: '阿里巴巴',
+    //     chineseTitle: '老人与海',
+    //     level: '中'
+    //   }),
+    //   new SwiperedBook({
+    //     img: '../../../assets/images/bookpage.png',
+    //     englighAuthor: 'alipapa',
+    //     englishTitle: 'The old man and sea',
+    //     chineseAuthor: '阿里巴巴',
+    //     chineseTitle: '老人与海',
+    //     level: '中'
+    //   }),
+    //   new SwiperedBook({
+    //     img: '../../../assets/images/bookpage.png',
+    //     englighAuthor: 'alipapa',
+    //     englishTitle: 'The old man and sea',
+    //     chineseAuthor: '阿里巴巴',
+    //     chineseTitle: '老人与海',
+    //     level: '中'
+    //   })
+    // ];
   }
 
   ngAfterViewInit(): void {
@@ -144,4 +155,14 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     // shave('.chinese-title', 25);
   }
 
+  requestJSON() {
+    this.http.get('/api/testingJson').subscribe( res => {
+      console.log(res);
+      this.routeToNext();
+    });
+  }
+
+  routeToNext(){
+    this.router.navigate(['/introduct']);
+  }
 }

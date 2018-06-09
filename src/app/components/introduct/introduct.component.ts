@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import shave from 'shave'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-introduct',
@@ -21,7 +22,7 @@ export class IntroductComponent implements OnInit, AfterViewInit {
   将乔伊卖给军队，为前线运送军火物资。艾伯特
   和他心爱的马不得不分离，但他们被分离的命运又因为第一次世界大战又重新交织在一起的故事。`;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -30,4 +31,7 @@ export class IntroductComponent implements OnInit, AfterViewInit {
     shave('.intro', 200, {character: `... <a style="color:blue;">显示全文</a>`});
   }
 
+  routeToNext(): void {
+    this.router.navigate(['/audio']);
+  }
 }

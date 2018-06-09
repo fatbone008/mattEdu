@@ -1,4 +1,7 @@
 export class Recorder {
+  id: number;
+  name: string;
+  book: string;
   recordObjs: Array<TextBundler>;
 
   constructor(textBundlers: Array<TextBundler>){

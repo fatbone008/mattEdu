@@ -18,6 +18,10 @@ import { MyRecordCardComponent } from './components/my-record/my-record-card/my-
 import { WordRateComponent } from './components/my-record/word-rate/word-rate.component';
 import { IntroductComponent } from './components/introduct/introduct.component';
 import { ButtonComponent } from './components/utilize/button/button.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {BookServiceService} from './services/book-service.service';
+import { QuestionSheetComponent } from './components/question-sheet/question-sheet.component';
+import { OptionButtonDirective } from './directive/OptionButton/option-button.directive';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -30,7 +34,9 @@ const appRoutes: Routes = [
   { path: 'homepage', component: HomepageComponent},
   { path: 'myCollections', component: MyCollectionsComponent},
   { path: 'myRecord', component: MyRecordComponent},
-  { path: 'introduct', component: IntroductComponent}
+  { path: 'introduct', component: IntroductComponent},
+  { path: 'question', component: QuestionSheetComponent},
+  { path: 'audio', component: AudioComponent}
 ];
 @NgModule({
   declarations: [
@@ -46,19 +52,24 @@ const appRoutes: Routes = [
     MyRecordCardComponent,
     WordRateComponent,
     IntroductComponent,
-    ButtonComponent
+    ButtonComponent,
+    QuestionSheetComponent,
+    OptionButtonDirective
   ],
   imports: [
     BrowserModule,
     SwiperModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG
     },
-    AudioCounterService
+    AudioCounterService,
+    BookServiceService
   ],
   bootstrap: [AppComponent]
 })

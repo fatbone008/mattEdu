@@ -1,0 +1,47 @@
+.container{
+  max-width: 1024px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 10% 5% 0 5%;
+}
+.question {
+  font-size: 2em;
+  font-weight: bolder;
+  margin: 1em .6em;
+}
+.answer {
+  display: block;
+  margin: 1.2em 0;
+}
+
+/*答案解析部分*/
+.analysis-head {
+  display: flex;
+  align-items: center;
+}
+.analysis-head img {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 10px 10px;
+  /*background-color: #85BBFA;*/
+  /*border-radius: 50%;*/
+}
+.analysis-head-text {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+.analysis-body {
+  margin: 0 10px;
+  color: gray;
+
+}
+.analysis-correct {
+  background: url(../../../assets/images/firework.png) no-repeat;
+  background-size: 4em;
+  padding-top: 1em;
+  background-position: top right 0px;
+}
+.analysis-incorrect {
+  border: 1px solid #f5dadb;
+  padding-bottom: 1em;
+}

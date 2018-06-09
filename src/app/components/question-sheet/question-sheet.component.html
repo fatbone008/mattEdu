@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="question">{{(question$ | async)?.question}}</div>
+  <app-button class="answer"
+              *ngFor="let a of (question$ | async)?.options"
+              [styleOption]="a.style"
+              [textile]="a.text" (click)="selectOption(a)"></app-button>
+
+  <div class="analysis" *ngIf="analysis"  [ngClass]="{'analysis-correct': (question$ | async)?.result, 'analysis-incorrect' : !(question$ | async)?.result}">
+    <div class="analysis-head">
+      <img [src]="(question$ | async)?.result ? '../../../assets/images/happyface.png' : '../../../assets/images/unhappy.png' " alt="">
+      <div class="analysis-head-text">{{(question$ | async)?.result ? 'Correct, good job!' : 'Sorry, but what is wrong!'}}</div>
+    </div>
+    <div class="analysis-body">
+      "{{(question$ | async)?.explain}}"
+    </div>
+  </div>
+</div>

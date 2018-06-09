@@ -1,12 +1,30 @@
 .button{
   border: 1px solid #0088cc;
-  border-radius: 1.5em;
+  border-radius: 2em 2em 2em 2em / 50% 50% 50% 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3em;
+  min-height: 4em;
+  font-weight: normal;
+}
+.option{
+  justify-content: flex-start;
+  padding: 0 5%;
+  border-color: lightgray;
+}
+.correct{
+  justify-content: flex-start;
+  padding: 0 5%;
+  border-color: #0088cc;
+  color: #0088cc;
+}
+.incorrect {
+  justify-content: flex-start;
+  padding: 0 5%;
+  color: white;
+  border-color: #ff9696;
+  background-color: #ff9696;
 }
 .button .textile {
   font-size: 1.4em;
-  font-weight: bold;
 }
