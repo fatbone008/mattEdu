@@ -249,7 +249,11 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit{
           console.log(hashingRecorders[second]);
           this.scrollTo = second;
           // console.log(document.getElementById(second + ''));
-          document.getElementById(second + '').scrollIntoView({block: 'center', behavior: 'smooth'});
+          try {
+            document.getElementById(second + '').scrollIntoView({block: 'center', behavior: 'smooth'});
+          } catch (err) {
+            document.getElementById(second + '').scrollIntoView();
+          }
         }
       });
     this.audioCounterServices.startTracing(this.player.nativeElement, 700);
