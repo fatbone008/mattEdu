@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 import {BookServiceService} from '../../services/book-service.service';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, Router} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-first-page',
@@ -150,10 +151,12 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     //   })
     // ];
 
-    // this.route.queryParamMap.subscribe(v => {
-    //   console.log('参数：', v);
-    //   console.log('code:', v.get('code'));
-    // });
+    console.log('route');
+    this.route
+      .queryParamMap
+      .pipe(map(params => {
+        console.log('行不行code', params.get('code') || 'None');
+      }));
   }
 
   ngAfterViewInit(): void {
