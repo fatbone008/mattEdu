@@ -150,10 +150,10 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     //   })
     // ];
 
-    this.route.queryParamMap.subscribe(v => {
-      console.log('参数：', v);
-      console.log('code:', v.get('code'));
-    });
+    // this.route.queryParamMap.subscribe(v => {
+    //   console.log('参数：', v);
+    //   console.log('code:', v.get('code'));
+    // });
   }
 
   ngAfterViewInit(): void {
