@@ -6,7 +6,7 @@ import {SwiperedBook} from '../../models/SwiperedBook';
 import {HttpClient} from '@angular/common/http';
 import {BookServiceService} from '../../services/book-service.service';
 import {Observable} from 'rxjs/Observable';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-first-page',
@@ -54,6 +54,7 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
 
   constructor(private http: HttpClient,
               private bookService: BookServiceService,
+              private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
@@ -148,6 +149,11 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     //     level: '中'
     //   })
     // ];
+
+    this.route.paramMap.subscribe(v => {
+      console.log('参数：', v);
+      console.log('code:', v.get('code'));
+    });
   }
 
   ngAfterViewInit(): void {

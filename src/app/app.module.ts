@@ -22,6 +22,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BookServiceService} from './services/book-service.service';
 import { QuestionSheetComponent } from './components/question-sheet/question-sheet.component';
 import { OptionButtonDirective } from './directive/OptionButton/option-button.directive';
+import {GetOpenIdService} from './services/get-open-id.service';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
       useValue: DEFAULT_SWIPER_CONFIG
     },
     AudioCounterService,
-    BookServiceService
+    BookServiceService,
+    GetOpenIdService
   ],
   bootstrap: [AppComponent]
 })
