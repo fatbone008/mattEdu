@@ -154,9 +154,14 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     console.log('route');
     this.route
       .queryParamMap
-      .pipe(map(params => {
-        console.log('行不行code', params.get('code') || 'None');
-      }));
+      .subscribe(data => {
+        const code = data.get('code');
+        const state = data.get('state');
+        console.log('code:' + code + ', state: ' + state);
+      });
+      // .pipe(map(params => {
+      //   console.log('行不行code', params.get('code') || 'None');
+      // }));
   }
 
   ngAfterViewInit(): void {
