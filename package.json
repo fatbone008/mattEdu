@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dist": "ng build -op /Users/chenyihui/study/Program/wechatTest/dist --prod --aot"
+    "dist": "ng build -op ../wechatTest/dist --prod --aot"
   },
   "private": true,
   "dependencies": {
