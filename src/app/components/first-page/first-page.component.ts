@@ -158,7 +158,9 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
         const code = data.get('code');
         const state = data.get('state');
         console.log('code:' + code + ', state: ' + state);
-        // this.http.get('/api/getOpenId?code=' + code + '&state=' + state).subscribe();
+        this.http.get('/api/getOpenId?code=' + code + '&state=' + state).subscribe(
+          res => console.log('/api/getOpenId?code', res)
+        );
         this.http.get('/api/testingJson').subscribe(res => {
           console.log(res);
         });
