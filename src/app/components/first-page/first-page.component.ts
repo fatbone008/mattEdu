@@ -8,6 +8,7 @@ import {BookServiceService} from '../../services/book-service.service';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
+import {UserServiceService} from '../../services/user-service.service';
 
 @Component({
   selector: 'app-first-page',
@@ -56,6 +57,7 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   constructor(private http: HttpClient,
               private bookService: BookServiceService,
               private route: ActivatedRoute,
+              private userService: UserServiceService,
               private router: Router) { }
 
   ngOnInit() {
@@ -151,16 +153,18 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     //   })
     // ];
 
+    // 获取用户openId
     console.log('route');
     this.route
       .queryParamMap
       .subscribe(data => {
         const code = data.get('code');
         const state = data.get('state');
-        console.log('code:' + code + ', state: ' + state);
-        this.http.get('/api/getOpenId?code=' + code).subscribe(
-          res => console.log('获取到的OpenId', res)
-        );
+        console.log('获取到的用户授权code:' + code + ', state: ' + state);
+        this.userService.getUserId(code);
+        // this.http.get('/api/getOpenId?code=' + code).subscribe(
+        //   res => console.log('获取到的OpenId', res)
+        // );
       });
   }
 
