@@ -180,7 +180,7 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  routeToNext(){
+  routeToNext() {
     this.router.navigate(['/introduct']);
   }
 }
