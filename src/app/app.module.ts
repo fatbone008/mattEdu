@@ -23,6 +23,7 @@ import {BookServiceService} from './services/book-service.service';
 import { QuestionSheetComponent } from './components/question-sheet/question-sheet.component';
 import { OptionButtonDirective } from './directive/OptionButton/option-button.directive';
 import {GetOpenIdService} from './services/get-open-id.service';
+import {HttpModule} from '@angular/http';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     SwiperModule,
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
     {

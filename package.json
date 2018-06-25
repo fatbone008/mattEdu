@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dist": "ng build -op ../wechatTest/dist --prod --aot"
+    "dist": "ng build -op ../wechatTest/dist --prod --aot&&node copyMPfile.js"
   },
   "private": true,
   "dependencies": {
