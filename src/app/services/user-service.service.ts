@@ -17,9 +17,9 @@ export class UserServiceService {
 
   getUserId = (code: string) => {
     this.httpClient.get('/api/getOpenId?code=' + code)
-      .pipe(
-        catchError(this.handleError)
-      )
+      // .pipe(
+      //   catchError(this.handleError)
+      // )
       .subscribe(res => {
         console.log('获取到的OpenId', res);
         this.userSubject.next(new User({user_id: res['openid']}));
