@@ -24,6 +24,7 @@ import { QuestionSheetComponent } from './components/question-sheet/question-she
 import { OptionButtonDirective } from './directive/OptionButton/option-button.directive';
 import {GetOpenIdService} from './services/get-open-id.service';
 import {HttpModule} from '@angular/http';
+import {UserServiceService} from './services/user-service.service';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     },
     AudioCounterService,
     BookServiceService,
-    GetOpenIdService
+    GetOpenIdService,
+    UserServiceService
   ],
   bootstrap: [AppComponent]
 })
