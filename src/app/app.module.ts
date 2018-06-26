@@ -25,6 +25,7 @@ import { OptionButtonDirective } from './directive/OptionButton/option-button.di
 import {GetOpenIdService} from './services/get-open-id.service';
 import {HttpModule} from '@angular/http';
 import {UserServiceService} from './services/user-service.service';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
   { path: 'myRecord', component: MyRecordComponent},
   { path: 'introduct', component: IntroductComponent},
   { path: 'question', component: QuestionSheetComponent},
-  { path: 'audio', component: AudioComponent}
+  { path: 'audio', component: AudioComponent},
+  { path: 'payment', component: PaymentComponent}
 ];
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ const appRoutes: Routes = [
     IntroductComponent,
     ButtonComponent,
     QuestionSheetComponent,
-    OptionButtonDirective
+    OptionButtonDirective,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

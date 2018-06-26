@@ -1,0 +1,36 @@
+.container{
+  width:100%;
+}
+.title{
+  background-color: green;
+  width: 100%;
+  height: 5%;
+  text-align: center;
+  font-size: 1.4rem;
+  color: white;
+  padding: 5px 0;
+}
+.bill-info{
+  text-align: center;
+  display: block;
+  margin: 100px 0 50px 0;
+  font-size: 1.8rem;
+}
+.count {
+  font-size: 2em;
+}
+.details {
+  fong-size: 1.6em;
+  padding: 0 1rem;
+  display: block;
+}
+.check-button{
+  width:80%;
+  background-color: green;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px auto;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.8rem;
+}
