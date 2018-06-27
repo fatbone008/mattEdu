@@ -14,7 +14,7 @@
 <div class="book-reading-container">
   <div class="title">看看书</div>
 
-  <app-swipered-books-component (touchend)="requestJSON()" [booksContent]="books$ | async"></app-swipered-books-component>
+  <app-swipered-books-component (click)="requestJSON()" [booksContent]="books$ | async"></app-swipered-books-component>
 </div>
 
 <div class="book-reading-container">
@@ -25,15 +25,15 @@
     <div class="arrow-body">经典故事</div>
   </div>
 
-  <app-swipered-cards-component [cardsContent]="classicStories" (touchend)="routeToNext()"></app-swipered-cards-component>
+  <app-swipered-cards-component [cardsContent]="classicStories" (click)="routeToNext()"></app-swipered-cards-component>
 
   <div class="arrow-wrapper">
     <div class="arrow-body">童话故事</div>
   </div>
 
-  <app-swipered-cards-component [cardsContent]="farelyStories" (touchend)="routeToNext()"></app-swipered-cards-component>
+  <app-swipered-cards-component [cardsContent]="farelyStories" (click)="routeToNext()"></app-swipered-cards-component>
 
   <div class="title">看看新闻</div>
 
-  <app-swipered-cards-component [cardsContent]="news" (touchend)="routeToNext()"></app-swipered-cards-component>
+  <app-swipered-cards-component [cardsContent]="news" (click)="routeToNext()"></app-swipered-cards-component>
 </div>
