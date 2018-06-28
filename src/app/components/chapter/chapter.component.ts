@@ -20,17 +20,21 @@ export class ChapterComponent implements OnInit {
   }]
 
   bookId;
+  title = '未知书';
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap
-      .switchMap(params => {
-        return params.get('bookId');
+      .map(params => {
+        const bookid = params.get('bookId');
+        const title = params.get('title');
+        return {bookId: bookid, title: title};
       })
-      .subscribe( bookId => {
-        this.bookId = bookId;
-        console.log(this.bookId);
+      .subscribe( value => {
+        this.bookId = value.bookId;
+        this.title = value.title;
+        console.log(value);
       })
   }
 

@@ -37,9 +37,9 @@ export class SwiperedBooksComponentComponent implements OnInit, AfterViewInit {
     shave('.author', 25);
   }
 
-  selectBook = (bookid) => {
+  selectBook = (bookid, bookName) => {
     console.log('进入' + bookid + '目录');
 
-    this.router.navigate(['/chapter', {bookId: 1, bookName: '你好'}]);
+    this.router.navigate(['/chapter', {bookId: 1, title: '你好'}]);
   }
 }
