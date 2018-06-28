@@ -14,4 +14,11 @@ export class BookServiceService {
         console.log('getBooks:', res);
       });
   }
+
+  getBookById = (bookid) => {
+    return this.http.get<any[]>(`/api/books/${bookid}`)
+      .do(res => {
+        console.log(res);
+      });
+  }
 }

@@ -1,4 +1,5 @@
 export class SwiperedBook {
+  id;
   englishTitle = '';
   chineseTitle = '';
   img = '';
@@ -16,6 +17,7 @@ export class SwiperedBook {
   }
 
   constructor(options) {
+    this.id = options['id'];
     this.englishTitle = options.englishTitle;
     this.chineseTitle = options.chineseTitle;
     this.level = options.level;

@@ -151,10 +151,10 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   }
 
   requestJSON() {
-    this.http.get('/api/testingJson').subscribe( res => {
-      console.log(res);
-      this.routeToNext();
-    });
+    // this.http.get('/api/testingJson').subscribe( res => {
+    //   console.log(res);
+    //   this.routeToNext();
+    // });
   }
 
   routeToNext() {

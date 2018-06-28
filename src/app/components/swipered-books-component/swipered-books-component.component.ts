@@ -2,6 +2,7 @@ import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import {SwiperedBook} from '../../models/SwiperedBook';
 import shave from 'shave';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-swipered-books-component',
@@ -23,7 +24,8 @@ export class SwiperedBooksComponentComponent implements OnInit, AfterViewInit {
 
   @Input() booksContent: Array<SwiperedBook>
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -33,5 +35,11 @@ export class SwiperedBooksComponentComponent implements OnInit, AfterViewInit {
     shave('.english-title', 50);
     shave('.chinese-title', 25);
     shave('.author', 25);
+  }
+
+  selectBook = (bookid) => {
+    console.log('进入' + bookid + '目录');
+
+    this.router.navigate(['/chapter', {bookId: 1, bookName: '你好'}]);
   }
 }
