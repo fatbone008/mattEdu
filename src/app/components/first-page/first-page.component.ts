@@ -39,17 +39,20 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   public slides = [
     {
       name: 'first style',
-      imgUrl: './assets/images/slide1.jpg'
+      imgUrl: 'https://anniesreading.oss-cn-beijing.aliyuncs.com/O1-740x455.jpg'
     }, {
       name: 'second style',
-      imgUrl: './assets/images/slide2.jpg'
+      imgUrl: 'https://anniesreading.oss-cn-beijing.aliyuncs.com/O2-740x455.jpg'
     },
     {
       name: 'first style',
-      imgUrl: './assets/images/slide3.jpg'
+      imgUrl: 'https://anniesreading.oss-cn-beijing.aliyuncs.com/breakfirst.jpg'
     }, {
       name: 'second style',
-      imgUrl: './assets/images/slide4.jpg'
+      imgUrl: 'https://anniesreading.oss-cn-beijing.aliyuncs.com/hemingway750x455.jpg'
+    }, {
+      name: 'second style',
+      imgUrl: 'https://anniesreading.oss-cn-beijing.aliyuncs.com/war-horse750x455.jpg'
     }
   ];
   books$: Observable<SwiperedBook[]>;
@@ -126,32 +129,6 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     //   this.books = res;
     // });
     this.books$ = this.bookService.getBooks();
-    // this.books = [
-    //   new SwiperedBook({
-    //     img: 'https://fatbone008-snapshot.oss-cn-beijing.aliyuncs.com/matt/bookpage.png',
-    //     englighAuthor: 'alipapa',
-    //     englishTitle: 'The old man and sea',
-    //     chineseAuthor: '阿里巴巴',
-    //     chineseTitle: '老人与海',
-    //     level: '中'
-    //   }),
-    //   new SwiperedBook({
-    //     img: '../../../assets/images/bookpage.png',
-    //     englighAuthor: 'alipapa',
-    //     englishTitle: 'The old man and sea',
-    //     chineseAuthor: '阿里巴巴',
-    //     chineseTitle: '老人与海',
-    //     level: '中'
-    //   }),
-    //   new SwiperedBook({
-    //     img: '../../../assets/images/bookpage.png',
-    //     englighAuthor: 'alipapa',
-    //     englishTitle: 'The old man and sea',
-    //     chineseAuthor: '阿里巴巴',
-    //     chineseTitle: '老人与海',
-    //     level: '中'
-    //   })
-    // ];
 
     // 获取用户openId
     console.log('route');
