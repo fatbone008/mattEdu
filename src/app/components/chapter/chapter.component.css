@@ -1,13 +1,13 @@
 .title {
   text-align: center;
-  font-size: larger;
+  font-size: 1.8rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 15px 10px;
 }
 .chapter {
   text-align: center;
   padding: 8px 10px;
-  font-size: 1.6em;
+  font-size: 1.6rem;
   color: dodgerblue;
-  border-bottom: #8a8a8a 1px solid;
+  /*border-bottom: #8a8a8a 1px solid;*/
 }

@@ -2,7 +2,7 @@
   <div  class="swiper-container" [swiper]="booksConfig">
 
     <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let story of booksContent" (click)="selectBook(story.id, 'ji')">
+      <div class="swiper-slide" *ngFor="let story of booksContent" (click)="selectBook(story.id, story.englishTitle)">
         <div class="book-page" [ngStyle]="{'background-image':'url(' + story.img +')'}"></div>
         <div class="book-detail">
           <div class="english-title">{{story.englishTitle}}</div>

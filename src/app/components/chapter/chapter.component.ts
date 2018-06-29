@@ -24,16 +24,18 @@ export class ChapterComponent implements OnInit {
 
   Chapters$: Observable<any>;
   title = '----';
+  bookId;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private bookService: BookServiceService) { }ççç
 
   ngOnInit() {
     this.Chapters$ = this.route.paramMap
       .map(params => {
-        const bookid = params.get('bookId');
+        this.bookId = params.get('bookId');
         this.title = params.get('title');
-        return {bookId: bookid, title: this.title};
+        return {bookId: this.bookId, title: this.title};
       })
       .switchMap(value => {
         return this.bookService.getBookChapterById(value.bookId);
@@ -43,6 +45,10 @@ export class ChapterComponent implements OnInit {
       //   // this.title = value.title;
       //   console.log(chapters);
       // });
+  }
+
+  startReading = (chapter) => {
+    this.router.navigate([`/audio`, {bookId: this.bookId, chapterId: chapter.id}]);
   }
 
 }
