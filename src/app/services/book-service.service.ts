@@ -15,7 +15,7 @@ export class BookServiceService {
       });
   }
 
-  getBookById = (bookid) => {
+  getBookChapterById = (bookid) => {
     return this.http.get<any[]>(`/api/books/${bookid}`)
       .do(res => {
         console.log(res);

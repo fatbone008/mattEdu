@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import {HttpClient} from '@angular/common/http';
+import {BookServiceService} from '../../services/book-service.service';
 
 @Component({
   selector: 'app-chapter',
@@ -20,9 +22,10 @@ export class ChapterComponent implements OnInit {
   }]
 
   bookId;
-  title = '未知书';
+  title = '----';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private bookService: BookServiceService) { }
 
   ngOnInit() {
     this.route.paramMap
@@ -31,11 +34,14 @@ export class ChapterComponent implements OnInit {
         const title = params.get('title');
         return {bookId: bookid, title: title};
       })
-      .subscribe( value => {
-        this.bookId = value.bookId;
-        this.title = value.title;
-        console.log(value);
+      .switchMap(value => {
+        return this.bookService.getBookChapterById(value.bookId);
       })
+      .subscribe( chapters => {
+        // this.bookId = value.bookId;
+        // this.title = value.title;
+        console.log(chapters);
+      });
   }
 
 }
