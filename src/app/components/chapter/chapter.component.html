@@ -1,4 +1,4 @@
 <div class="title">{{title}}</div>
-<div class="chapter" *ngFor="let chapter of chapters">
-  {{chapter.chapterName}}
+<div class="chapter" *ngFor="let chapter of (Chapters$ | async)">
+  <i>{{chapter.chapterName}}</i>
 </div>

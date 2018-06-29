@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {HttpClient} from '@angular/common/http';
 import {BookServiceService} from '../../services/book-service.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-chapter',
@@ -10,38 +11,38 @@ import {BookServiceService} from '../../services/book-service.service';
   styleUrls: ['./chapter.component.css']
 })
 export class ChapterComponent implements OnInit {
-  @Input()
-  chapters = [{
-    chapterName: '1'
-  }, {
-    chapterName: '1'
-  }, {
-    chapterName: '1'
-  }, {
-    chapterName: '1'
-  }]
+  // @Input()
+  // chapters = [{
+  //   chapterName: '1'
+  // }, {
+  //   chapterName: '1'
+  // }, {
+  //   chapterName: '1'
+  // }, {
+  //   chapterName: '1'
+  // }]
 
-  bookId;
+  Chapters$: Observable<any>;
   title = '----';
 
   constructor(private route: ActivatedRoute,
-              private bookService: BookServiceService) { }
+              private bookService: BookServiceService) { }ççç
 
   ngOnInit() {
-    this.route.paramMap
+    this.Chapters$ = this.route.paramMap
       .map(params => {
         const bookid = params.get('bookId');
-        const title = params.get('title');
-        return {bookId: bookid, title: title};
+        this.title = params.get('title');
+        return {bookId: bookid, title: this.title};
       })
       .switchMap(value => {
         return this.bookService.getBookChapterById(value.bookId);
-      })
-      .subscribe( chapters => {
-        // this.bookId = value.bookId;
-        // this.title = value.title;
-        console.log(chapters);
       });
+      // .subscribe( chapters => {
+      //   this.bookId = chapters;
+      //   // this.title = value.title;
+      //   console.log(chapters);
+      // });
   }
 
 }
