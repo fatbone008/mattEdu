@@ -37,3 +37,7 @@
 .active {
   color: lawngreen;
 }
+strong, em {
+  font-weight: bolder;
+}
+

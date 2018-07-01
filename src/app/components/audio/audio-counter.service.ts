@@ -14,7 +14,7 @@ export class AudioCounterService {
 
   constructor() { }
 
-  startTracing(player, period: number){
+  startTracing(player, period: number) {
     this.tracerInterval = Observable.interval(period).subscribe(() => {
       // console.log('subject player emit: ', player.currentTime);
       this.subject.next(player.currentTime);

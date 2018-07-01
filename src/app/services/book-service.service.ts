@@ -22,10 +22,10 @@ export class BookServiceService {
       });
   }
 
-  getAudiosByBookChapter =(bookId, chapterId) => {
+  getAudiosByBookChapter = (bookId, chapterId) => {
     return this.http.get<any[]>(`api/books/${bookId}/${chapterId}`)
       .do(res => {
-        console.log(res);
+        console.log(`api/books/${bookId}/${chapterId}`, res);
       });
   }
 }
