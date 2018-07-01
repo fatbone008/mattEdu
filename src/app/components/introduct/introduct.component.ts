@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import shave from 'shave'
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-introduct',
@@ -22,9 +22,18 @@ export class IntroductComponent implements OnInit, AfterViewInit {
   将乔伊卖给军队，为前线运送军火物资。艾伯特
   和他心爱的马不得不分离，但他们被分离的命运又因为第一次世界大战又重新交织在一起的故事。`;
 
-  constructor(private router: Router) { }
+  bookId: any;
+  title: any;
+
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap
+      .subscribe(params => {
+        this.bookId = params.get('bookId');
+        this.title = params.get('title');
+      });
   }
 
   ngAfterViewInit(): void {
@@ -32,6 +41,6 @@ export class IntroductComponent implements OnInit, AfterViewInit {
   }
 
   routeToNext(): void {
-    this.router.navigate(['/audio']);
+    this.router.navigate(['/chapter', {bookId: this.bookId, title: this.title}]);
   }
 }
