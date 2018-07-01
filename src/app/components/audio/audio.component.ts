@@ -6,6 +6,8 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
 import {Recorder, TextBundler} from '../../models/Recorder';
+import {BookServiceService} from '../../services/book-service.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-audio',
@@ -212,24 +214,36 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit{
 
   scrollTo: number = 0;
 
-  constructor(private audioCounterServices: AudioCounterService) {
+  constructor(private audioCounterServices: AudioCounterService,
+              private bookServices: BookServiceService,
+              private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    console.log('Audio Component 初始化');
+    this.route.paramMap
+      .map(params => {
+        const bookId = params.get('bookId');
+        const chapterId = params.get('chapterId');
+        return {'bookId': bookId, 'chapterId': chapterId}
+      })
+      .switchMap(o => {
+        console.log('请求/api/books/bookId/chapterId');
+        return this.bookServices.getAudiosByBookChapter(o.bookId, o.chapterId);
+      })
+      .subscribe(res => {
+        console.log('请求到的audios数据：', res);
+        const records = res.map(o => {
+          return new TextBundler(0);
+        });
+        this.recorders = new Recorder(records);
+      }, err => {
+        console.log('获取audios失败：', err);
+      });
+    // this.bookServices.getAudiosByBookChapter()
 
-    // mock
-    // this.recorders = new Recorder([
-    //   new TextBundler({time: '0:00', text: 'hello'}),
-    //   new TextBundler({time: '00:34', text: 'Nice to meet you'}),
-    //   new TextBundler({time: '0:3', text: 'oh nice!'}),
-    //   new TextBundler({time: '0:5', text: 'can we talk'}),
-    //   new TextBundler({time: '0:13', text: 'matt is awesome guy'}),
-    //   new TextBundler({time: '0:35', text: 'does he married?'}),
-    //   new TextBundler({time: '0:23', text: 'who knows'}),
-    //   new TextBundler({time: '0:15', text: 'what happen'})
-    // ]);
-    this.recorders = new Recorder(this.mockRecords);
+    // this.recorders = new Recorder(this.mockRecords);
 
   }
 
