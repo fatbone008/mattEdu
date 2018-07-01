@@ -29,15 +29,14 @@
   bottom: 0px;
 }
 .text {
+  font-size: 1.6em;
   text-align: center;
   padding: 10px 0;
   color: lightgray;
+  font-family: "Gill Sans", sans-serif;
 }
 
 .active {
   color: lawngreen;
-}
-strong, em {
-  font-weight: bolder;
 }
 
