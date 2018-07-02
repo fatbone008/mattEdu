@@ -4,6 +4,8 @@
       <span [ngClass]="{'active': scrollTo === text.time}" [innerHtml]="text.text">{{text.text}}</span>
     </div>
   </div>
-  <audio class="audio" #player src="https://anniesreading.oss-cn-beijing.aliyuncs.com/Breakfast%20at%20Tiffanys%20-%2001.mp3" controls></audio>
+  <audio class="audio" #player [src]="(audioURL$ | async)" controls>
+    <div style="text-align: center;">无法加载音频资源 No audios available!</div>
+  </audio>
 </div>
 

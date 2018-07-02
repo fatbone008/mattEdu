@@ -25,7 +25,7 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('container') container: ElementRef;
   @ViewChild('fei') fei;
 
-  hashingRecorders;
+  audioURL$: Observable<string> = Observable.of('');
 
   scrollTo = 0;
 
@@ -37,6 +37,7 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     console.log('Audio Component 初始化');
+    // 获取录音的文本和时间
     this.recorders$ = this.route.paramMap
       .map(params => {
         const bookId = params.get('bookId');
@@ -54,13 +55,21 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
         });
         return new Recorder(records);
       });
-    // this.recorders$
-    //   .subscribe(audios => {
-    //     this.hashingRecorders = audios.hash();
-    //   }, err => {
-    //     console.log('初始化返回数据出错', err);
-    //   });
-
+    // 获得音频地址
+    this.audioURL$ = this.route.paramMap
+      .map(params => {
+        const bookId = params.get('bookId');
+        const chapterId = params.get('chapterId');
+        return {'bookId': bookId, 'chapterId': chapterId};
+      })
+      .switchMap(info => {
+        return this.bookServices.getAudioByBookChapter(info.bookId, info.chapterId);
+      })
+      .map(res => {
+        // console.log('map:', res);
+        return res.audioURL;
+      });
+    // this.audioURL$.subscribe(o => console.log('---------------', o));
   }
 
   ngOnDestroy(): void {
@@ -68,27 +77,6 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-    // this.tracer$ = this.recorders$.map(recorders => {
-    //   return recorders.hash();
-    // }).switchMap(hashingRecorders => {
-    //   return this.audioCounterServices.counter$
-    //     .map(seccond => Math.floor(seccond))
-    //     .distinctUntilChanged()
-    //     .do(second => {
-    //       // 激活的文本段
-    //       if (hashingRecorders[second]) {
-    //         console.log(hashingRecorders[second]);
-    //         this.scrollTo = second;
-    //         // console.log(document.getElementById(second + ''));
-    //         try {
-    //           document.getElementById(second + '').scrollIntoView({block: 'center', behavior: 'smooth'});
-    //         } catch (err) {
-    //           document.getElementById(second + '').scrollIntoView();
-    //         }
-    //       }
-    //     });
-    // })
     this.audioCounterServices.startTracing(this.player.nativeElement, 700);
     this.audioCounterServices.counter$
         .map(seccond => Math.floor(seccond))
@@ -109,48 +97,6 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
               }
         }
       });
-        // .do(second => {
-        //   // 激活的文本段
-        //   if (hashingRecorders[second]) {
-        //     console.log(hashingRecorders[second]);
-        //     this.scrollTo = second;
-        //     // console.log(document.getElementById(second + ''));
-        //     try {
-        //       document.getElementById(second + '').scrollIntoView({block: 'center', behavior: 'smooth'});
-        //     } catch (err) {
-        //       document.getElementById(second + '').scrollIntoView();
-        //     }
-        //   }
-        // });
-
-    // this.recorders$
-    //   .map(audios => {
-    //     return audios.hash();
-    //   })
-    //   .first()
-    //   .subscribe(hashingRecorders => {
-    //   console.log('hashingRecorders: ', hashingRecorders);
-    //   this.tracer$ = this.audioCounterServices.counter$
-    //     .map(seccond => Math.floor(seccond))
-    //     .distinctUntilChanged()
-    //     .do(second => {
-    //       // 激活的文本段
-    //       console.log('hashingRecorders[second]', hashingRecorders[second]);
-    //       if (hashingRecorders[second]) {
-    //         console.log(hashingRecorders[second]);
-    //         this.scrollTo = second;
-    //         // console.log(document.getElementById(second + ''));
-    //         try {
-    //           document.getElementById(second + '').scrollIntoView({block: 'center', behavior: 'smooth'});
-    //         } catch (err) {
-    //           document.getElementById(second + '').scrollIntoView();
-    //         }
-    //       }
-    //     });
-    //   this.audioCounterServices.startTracing(this.player.nativeElement, 700);
-    //   this.tracer$.subscribe(console.log);
-    // });
-
   }
 
 }
