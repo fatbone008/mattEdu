@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {SwiperedBook} from '../models/SwiperedBook';
 import 'rxjs/add/operator/do';
 import * as _ from 'lodash';
+import {Question} from '../models/Question';
 
 @Injectable()
 export class BookServiceService {
@@ -58,6 +59,13 @@ export class BookServiceService {
     return this.http.get<any>(`api/books/audio/${bookId}/${chapterId}`)
       .do(res => {
         console.log(`api/books/audio/${bookId}/${chapterId}`, res);
+      });
+  }
+
+  getQuestionByChapter = (chapterId) => {
+    return this.http.get<Question[]>(`api/books/qa/${chapterId}`)
+      .do(res => {
+        console.log(`api/books/qa/${chapterId}`, res);
       });
   }
 }

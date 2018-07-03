@@ -1,17 +1,21 @@
 <div class="container">
-  <div class="question">{{(question$ | async)?.question}}</div>
+  <div class="question">{{(questions$ | async)[currentQuestionIndex]?.question}}</div>
   <app-button class="answer"
-              *ngFor="let a of (question$ | async)?.options"
+              *ngFor="let a of (questions$ | async)[currentQuestionIndex]?.bookAnswers"
               [styleOption]="a.style"
-              [textile]="a.text" (click)="selectOption(a)"></app-button>
+              [textile]="a.answerText" (click)="selectOption(a)"></app-button>
 
-  <div class="analysis" *ngIf="analysis"  [ngClass]="{'analysis-correct': (question$ | async)?.result, 'analysis-incorrect' : !(question$ | async)?.result}">
+  <div class="analysis" *ngIf="(questions$ | async)[currentQuestionIndex]?.selectedFlas"  [ngClass]="{'analysis-correct': (questions$ | async)[currentQuestionIndex]?.result, 'analysis-incorrect' : !(questions$ | async)[currentQuestionIndex]?.result}">
     <div class="analysis-head">
-      <img [src]="(question$ | async)?.result ? '../../../assets/images/happyface.png' : '../../../assets/images/unhappy.png' " alt="">
-      <div class="analysis-head-text">{{(question$ | async)?.result ? 'Correct, good job!' : 'Sorry, but what is wrong!'}}</div>
+      <img [src]="(questions$ | async)[currentQuestionIndex].result ? '../../../assets/images/happyface.png' : '../../../assets/images/unhappy.png' " alt="">
+      <div class="analysis-head-text">{{(questions$ | async)[currentQuestionIndex].result ? 'Correct, good job!' : 'Sorry, but what is wrong!'}}</div>
     </div>
     <div class="analysis-body">
-      "{{(question$ | async)?.explain}}"
+      "{{(questions$ | async)[currentQuestionIndex].explaination}}"
     </div>
+
+    <app-button class="nextQuestion" [textile]="'下一题'"
+                (click)="nextQuestion()"
+                *ngIf="(questions$ | async)?.length != (currentQuestionIndex+1)"></app-button>
   </div>
 </div>

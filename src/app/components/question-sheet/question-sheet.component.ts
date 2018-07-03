@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {questionStore} from '../../Store/QuestionStore';
 import {Answer} from '../../models/Question';
+import {BookServiceService} from '../../services/book-service.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-question-sheet',
@@ -12,30 +12,46 @@ import {Answer} from '../../models/Question';
 })
 export class QuestionSheetComponent implements OnInit {
 
-  question$ = questionStore.question$;
+  // question$ = questionStore.question$;
+  questions$ = questionStore.questions$;
+  qCount = 0;
+  currentQuestionIndex = 0;
 
   analysis = false;
 
-  a = 'option'
+  a = 'option';
 
   question = 'Why did Abert is dad buy the horse?';
 
-  buttonStyle: Observable<string> = new BehaviorSubject('option').asObservable();
 
-  constructor() { }
+  constructor(private bookService: BookServiceService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.bookService.getQuestionByChapter(1)
+      .subscribe(questions => {
+        this.qCount = questions.length;
+        questionStore.setQuestions(questions);
+      });
   }
 
   selectOption = (selectAnswer: Answer) => {
-    if (questionStore.getValue().selectedFlas) {
+    if (questionStore.getValue()[this.currentQuestionIndex].selectedFlas) {
       return;
     }
-    questionStore.userSelect(selectAnswer);
-    console.log(questionStore.getValue().result);
+    questionStore.userSelect(selectAnswer, this.currentQuestionIndex);
+    // console.log(questionStore.getValue().result);
     this.analysis = true;
   }
 
+  nextQuestion = () => {
+    this.currentQuestionIndex++;
+    // console.log('questionStore.getValue().length:', questionStore.getValue().length);
+    // console.log('this.currentQuestionIndex:', this.currentQuestionIndex);
+    // questionStore.scanQuestion(this.currentQuestionIndex);
+
+  }
   //
   // answers: Array<any> = [
   //   {

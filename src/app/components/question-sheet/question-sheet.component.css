@@ -45,3 +45,9 @@
   border: 1px solid #f5dadb;
   padding-bottom: 1em;
 }
+
+
+.nextQuestion {
+  display: block;
+  margin: 4em 0;
+}

@@ -1,8 +1,14 @@
 export class Answer {
   text ?: string;
   style ? = 'option';
+  answerIndex ?: number;
+  answerText ?: string;
+  bookQuestionId ?: number;
   constructor(answer) {
     this.text = answer.text;
+    this.answerIndex = answer.answerIndex;
+    this.answerText = answer.answerText;
+    this.bookQuestionId = answer.bookQuestionId;
   }
 }
 
@@ -17,15 +23,26 @@ export class Question {
 
   result ?: boolean;
 
-  explain ?: string;
+  explaination ?: string;
 
   selectedFlas ? = false;
+
+  questionIndex ?: number;
+
+  correctAnswer ?: string;
+
+  chapterId ?: number;
+
+  bookAnswers ?: Array<Answer>;
 
   constructor(qt) {
     this.question = qt.question;
     this.options = qt.options;
     this.answer = qt.answer;
-    this.explain = qt.explain;
+    this.explaination = qt.explaination;
+    this.chapterId = qt.chapterId;
+    this.questionIndex = qt.questionIndex;
+    this.correctAnswer = qt.correctAnswer;
 
     // 用户所选答案
     // this.userChoosen = null;
