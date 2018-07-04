@@ -28,3 +28,8 @@
 .button .textile {
   font-size: 1.4em;
 }
+.small {
+  justify-content: center;
+  color: #85BBFA;
+  padding: 0 5%;
+}

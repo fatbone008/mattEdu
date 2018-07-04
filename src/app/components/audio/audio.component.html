@@ -3,8 +3,12 @@
     <div class="text" *ngFor="let text of (recorders$ | async)?.recordObjs" [attr.id]="text.time">
       <span [ngClass]="{'active': scrollTo === text.time}" [innerHtml]="text.text">{{text.text}}</span>
     </div>
+
+    <div class="gotoQA">
+      <app-button [textile]="'小测一下'" [styleOption]="'small'" (click)="gotoQA()"></app-button>
+    </div>
   </div>
-  <audio class="audio" #player [src]="(audioURL$ | async)" controls>
+  <audio *ngIf="(recorders$ | async)?.recordObjs.length != 0" class="audio" #player [src]="(audioURL$ | async)" controls>
     <div style="text-align: center;">无法加载音频资源 No audios available!</div>
   </audio>
 </div>

@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 import {Recorder, TextBundler} from '../../models/Recorder';
 import {BookServiceService} from '../../services/book-service.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/throttleTime';
@@ -27,11 +27,17 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   audioURL$: Observable<string> = Observable.of('');
 
+  bookId;
+  chapterId;
+
   scrollTo = 0;
+
+  gotoQAActive = true;
 
   constructor(private audioCounterServices: AudioCounterService,
               private bookServices: BookServiceService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
 
   }
 
@@ -40,8 +46,8 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
     // 获取录音的文本和时间
     this.recorders$ = this.route.paramMap
       .map(params => {
-        const bookId = params.get('bookId');
-        const chapterId = params.get('chapterId');
+        const bookId = this.bookId = params.get('bookId');
+        const chapterId = this.chapterId = params.get('chapterId');
         return {'bookId': bookId, 'chapterId': chapterId};
       })
       .switchMap(o => {
@@ -83,6 +89,7 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
         .distinctUntilChanged()
         .withLatestFrom(this.recorders$.map(audios => audios.hash()))
       .subscribe(x => {
+        this.gotoQAActive = true;
         console.log('每秒触发：', x);
         const second = x[0];
         const hashingRecorders = x[1];
@@ -99,4 +106,7 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
       });
   }
 
+  gotoQA = () => {
+    this.router.navigate(['/question', {'bookId': this.bookId, 'chapterId': this.chapterId}]);
+  }
 }

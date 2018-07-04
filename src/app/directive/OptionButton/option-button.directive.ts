@@ -27,7 +27,7 @@ export class OptionButtonDirective implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    console.log('it\'s true ', this._styleOption);
+    // console.log('it\'s true ', this._styleOption);
   }
 
   // 根据StyleOption的值修改样式

@@ -6,7 +6,8 @@
   flex-direction: column;
   max-width: 1024px;
   margin: 0 auto;
-  background-image: url(../../../assets/images/b20.png);
+  /*background-image: url(../../../assets/images/b20.png);*/
+  background-color: white;
   justify-content: center;
   align-items: center;
 }
@@ -29,14 +30,19 @@
   bottom: 0px;
 }
 .text {
-  font-size: 1.6em;
-  text-align: center;
+  font-size: 2em;
+  /*text-align: center;*/
   padding: 10px 0;
-  color: lightgray;
+  color: gray;
   font-family: "Gill Sans", sans-serif;
 }
 
 .active {
-  color: lawngreen;
+  color: #0088cc;
+}
+
+.gotoQA {
+  display: block;
+  margin: 40px 100px;
 }
 

@@ -18,6 +18,7 @@ export class QuestionSheetComponent implements OnInit {
   currentQuestionIndex = 0;
 
   analysis = false;
+  chapterId
 
   a = 'option';
 
@@ -29,10 +30,15 @@ export class QuestionSheetComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.bookService.getQuestionByChapter(1)
-      .subscribe(questions => {
-        this.qCount = questions.length;
-        questionStore.setQuestions(questions);
+    this.route.paramMap
+      .subscribe(params => {
+        this.chapterId = params.get('chapterId');
+
+        this.bookService.getQuestionByChapter(this.chapterId)
+          .subscribe(questions => {
+            this.qCount = questions.length;
+            questionStore.setQuestions(questions);
+          });
       });
   }
 
@@ -41,34 +47,10 @@ export class QuestionSheetComponent implements OnInit {
       return;
     }
     questionStore.userSelect(selectAnswer, this.currentQuestionIndex);
-    // console.log(questionStore.getValue().result);
     this.analysis = true;
   }
 
   nextQuestion = () => {
     this.currentQuestionIndex++;
-    // console.log('questionStore.getValue().length:', questionStore.getValue().length);
-    // console.log('this.currentQuestionIndex:', this.currentQuestionIndex);
-    // questionStore.scanQuestion(this.currentQuestionIndex);
-
   }
-  //
-  // answers: Array<any> = [
-  //   {
-  //     text: 'Because another farmer wanted him Because another farmer wanted him Because another farmer wanted him',
-  //     style: 'correct'
-  //   },
-  //   {
-  //     text: 'As a present to Albert',
-  //     style: 'option'
-  //   },
-  //   {
-  //     text: 'He needed another farmhouse',
-  //     style: 'option'
-  //   },
-  //   {
-  //     text: 'To please his wife',
-  //     style: 'incorrect'
-  //   }
-  // ]
 }
