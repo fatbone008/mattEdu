@@ -33,7 +33,7 @@
 .analysis-body {
   margin: 0 10px;
   color: gray;
-
+  font-size: 1.6em;
 }
 .analysis-correct {
   background: url(../../../assets/images/firework.png) no-repeat;
