@@ -63,6 +63,7 @@ export class AppComponent implements OnInit{
           // 以键值对的形式返回，可用的api值true，不可用为false
           // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
           console.log('chooseImage可以用：', res);
+          alert('微信JDK可以用了啦');
         }
       });
     });
