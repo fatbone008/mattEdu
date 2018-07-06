@@ -2,6 +2,7 @@
   <div class="text-container" #container>
     <div class="text" *ngFor="let text of (recorders$ | async)?.recordObjs" [attr.id]="text.time">
       <span [ngClass]="{'active': scrollTo === text.time}" [innerHtml]="text.text">{{text.text}}</span>
+      <img *ngIf="text.imgUrl" [src]="text.imgUrl" alt="">
     </div>
 
     <div class="gotoQA">

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import shave from 'shave';
 import {SwiperedCard} from '../../models/SwiperedCard';
@@ -9,6 +9,7 @@ import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {UserServiceService} from '../../services/user-service.service';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-first-page',
@@ -61,7 +62,8 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
               private bookService: BookServiceService,
               private route: ActivatedRoute,
               private userService: UserServiceService,
-              private router: Router) { }
+              private router: Router,
+              @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
     this.classicStories = [
@@ -143,6 +145,8 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
         //   res => console.log('获取到的OpenId', res)
         // );
       });
+
+    console.log('url', this.document.location.href);
   }
 
   ngAfterViewInit(): void {

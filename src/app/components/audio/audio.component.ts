@@ -4,13 +4,14 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
-
 import {Recorder, TextBundler} from '../../models/Recorder';
 import {BookServiceService} from '../../services/book-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/throttleTime';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-audio',
@@ -18,7 +19,7 @@ import 'rxjs/add/operator/throttleTime';
   styleUrls: ['./audio.component.css']
 })
 export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
-  tracer$: Observable<number>;
+
   recorders$: Observable<Recorder>;
 
   @ViewChild('player') player: ElementRef;
@@ -45,20 +46,24 @@ export class AudioComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('Audio Component 初始化');
     // 获取录音的文本和时间
     this.recorders$ = this.route.paramMap
+      // 读取路由传来的参数params
       .map(params => {
         const bookId = this.bookId = params.get('bookId');
         const chapterId = this.chapterId = params.get('chapterId');
         return {'bookId': bookId, 'chapterId': chapterId};
       })
+      // 用参数请求本章的录音时间和文本
       .switchMap(o => {
         console.log('请求/api/books/bookId/chapterId');
         return this.bookServices.getAudiosByBookChapter(o.bookId, o.chapterId);
       })
       .map(audios => {
         console.log('转recorders');
-        const records = audios.map(o => {
+        let records = audios.map(o => {
           return new TextBundler(o);
         });
+        records = _.orderBy(records, ['time']);
+        console.log('加了图片的：', records);
         return new Recorder(records);
       });
     // 获得音频地址
