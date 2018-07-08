@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {UserServiceService} from '../../services/user-service.service';
 import {DOCUMENT} from '@angular/common';
+import {AppConfigService} from '../../services/app-config.service';
 
 @Component({
   selector: 'app-first-page',
@@ -63,6 +64,7 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
               private route: ActivatedRoute,
               private userService: UserServiceService,
               private router: Router,
+              private appConfig: AppConfigService,
               @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
@@ -141,9 +143,6 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
         const state = data.get('state');
         console.log('获取到的用户授权code:' + code + ', state: ' + state);
         this.userService.getUserId(code);
-        // this.http.get('/api/getOpenId?code=' + code).subscribe(
-        //   res => console.log('获取到的OpenId', res)
-        // );
       });
 
     console.log('url', this.document.location.href);
@@ -154,12 +153,6 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
     // shave('.chinese-title', 25);
   }
 
-  requestJSON() {
-    // this.http.get('/api/testingJson').subscribe( res => {
-    //   console.log(res);
-    //   this.routeToNext();
-    // });
-  }
 
   routeToNext() {
     this.router.navigate(['/introduct']);
