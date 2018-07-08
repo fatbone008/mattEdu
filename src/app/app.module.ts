@@ -27,6 +27,7 @@ import {HttpModule} from '@angular/http';
 import {UserServiceService} from './services/user-service.service';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ChapterComponent } from './components/chapter/chapter.component';
+import {AppConfigService} from './services/app-config.service';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -81,7 +82,8 @@ const appRoutes: Routes = [
     AudioCounterService,
     BookServiceService,
     GetOpenIdService,
-    UserServiceService
+    UserServiceService,
+    AppConfigService
   ],
   bootstrap: [AppComponent]
 })
