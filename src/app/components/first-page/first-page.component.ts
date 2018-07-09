@@ -157,7 +157,7 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       //   this.userService.getUserId(code);
       // });
     this.wx$ = forkJoin(openId$, this.appConfig.appConfig$)
-    this.wx$.subscribe(arr => console.log(arr));
+    // this.wx$.subscribe(arr => console.log(arr));
 
     console.log('url:', this.document.location.href);
   }
