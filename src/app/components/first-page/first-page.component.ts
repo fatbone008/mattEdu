@@ -11,6 +11,7 @@ import {map} from 'rxjs/operators';
 import {UserServiceService} from '../../services/user-service.service';
 import {DOCUMENT} from '@angular/common';
 import {AppConfigService} from '../../services/app-config.service';
+import {forkJoin} from 'rxjs/observable/forkJoin';
 
 @Component({
   selector: 'app-first-page',
@@ -32,6 +33,8 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       type: 'bullets'
     }
   };
+
+  wx$;
 
   classicStories: Array<SwiperedCard> = [];
   books: Array<SwiperedBook> = [];
@@ -136,16 +139,27 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
 
     // 获取用户openId
     console.log('route');
-    this.route
+    const openId$ = this.route
       .queryParamMap
-      .subscribe(data => {
+      .map(data => {
         const code = data.get('code');
         const state = data.get('state');
-        console.log('获取到的用户授权code:' + code + ', state: ' + state);
-        this.userService.getUserId(code);
-      });
+        return {code: code, state: state};
+      })
+      .switchMap(data => {
+        console.log('user code: ', data.code);
+        return <any>this.userService.getUserId(data.code);
+        });
+      // .subscribe(data => {
+      //   const code = data.get('code');
+      //   const state = data.get('state');
+      //   console.log('获取到的用户授权code:' + code + ', state: ' + state);
+      //   this.userService.getUserId(code);
+      // });
+    this.wx$ = forkJoin(openId$, this.appConfig.appConfig$)
+    this.wx$.subscribe(arr => console.log(arr));
 
-    console.log('url', this.document.location.href);
+    console.log('url:', this.document.location.href);
   }
 
   ngAfterViewInit(): void {

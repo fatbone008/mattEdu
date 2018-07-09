@@ -8,7 +8,7 @@ export class AppConfigService {
 
   private appConfigSubject = new BehaviorSubject({});
 
-  private appConfig$: Observable<AppConfig> = this.appConfigSubject.asObservable();
+  public appConfig$: Observable<AppConfig> = this.appConfigSubject.asObservable();
 
   constructor(private httpClient: HttpClient) {
     this.getAccess();
