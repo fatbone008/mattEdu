@@ -7,11 +7,12 @@ import {HttpClient} from '@angular/common/http';
 import {BookServiceService} from '../../services/book-service.service';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, Router} from '@angular/router';
-import {map} from 'rxjs/operators';
 import {UserServiceService} from '../../services/user-service.service';
 import {DOCUMENT} from '@angular/common';
 import {AppConfigService} from '../../services/app-config.service';
 import {forkJoin} from 'rxjs/observable/forkJoin';
+import {catchError} from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-first-page',
@@ -139,16 +140,16 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
 
     // 获取用户openId
     console.log('route');
-    const openId$ = this.route
+    this.route
       .queryParamMap
       .map(data => {
         const code = data.get('code');
         const state = data.get('state');
         return {code: code, state: state};
       })
-      .switchMap(data => {
+      .subscribe(data => {
         console.log('user code: ', data.code);
-        return <any>this.userService.getUserId(data.code);
+        <any>this.userService.getUserId(data.code);
         });
       // .subscribe(data => {
       //   const code = data.get('code');
@@ -156,9 +157,6 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
       //   console.log('获取到的用户授权code:' + code + ', state: ' + state);
       //   this.userService.getUserId(code);
       // });
-    this.wx$ = forkJoin(openId$, this.appConfig.appConfig$)
-    // this.wx$.subscribe(arr => console.log(arr));
-    this.wx$.subscribe(val => console.log(val));
 
     console.log('url:', this.document.location.href);
   }
@@ -166,6 +164,11 @@ export class FirstPageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // shave('.english-title', 50);
     // shave('.chinese-title', 25);
+    // this.openId$.subscribe(openid => console.log('openId:', openid));
+    // this.appConfig.appConfig$.subscribe(config => console.log('config:', this.config));
+    this.wx$ = forkJoin(this.userService.user$, this.appConfig.appConfig$).pipe(catchError(err => of(err)));
+    this.wx$.subscribe(val => console.log('forkJoin:', val));
+    console.log(`this.wx$:${this.wx$}`);
   }
 
 
